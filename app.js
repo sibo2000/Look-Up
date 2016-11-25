@@ -1,31 +1,31 @@
 var fs = require('fs'),
-    teamLookup = {},
-    data = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
+    lookUp = {};
 
 (function(){
 
-    var read = function(){        
-        return data;        
-    }
+    var data = JSON.parse(fs.readFileSync('data.json', 'utf-8')),
+        read = function(){        
+            return data;        
+        };
 
-    teamLookup.setTeam = function(teamAlias, teamName) {
+    lookUp.set = function(alias, name) {
         var dataUpdate;
-        data[teamAlias] = teamName;
+        data[alias] = name;
         dataUpdate = JSON.stringify(data);
         fs.writeFileSync('data.json', dataUpdate, 'utf-8');
-        return 'Successfull added ' + teamName;
+        return 'Successfull added ' + name;
     };
 
-    teamLookup.findTeam = function(teamAlias) {            
-        return data[teamAlias] || 'Cant find am ' + teamAlias;        
+    lookUp.find = function(alias) {            
+        return data[alias] || 'Cant find am ' + alias;        
     };
     
-    teamLookup.all = function() {        
+    lookUp.all = function() {        
         return read();    
     };
 
 }());
 
-console.log(teamLookup.all());
-console.log(teamLookup.findTeam('West Ham United'));
-console.log(teamLookup.setTeam('A', 'Bc'));
+console.log(lookUp.all());
+console.log(lookUp.find('West Ham United'));
+console.log(lookUp.set('A', 'Bc'));
