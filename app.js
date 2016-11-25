@@ -1,51 +1,31 @@
 var fs = require('fs'),
-    teamLookup = {};
+    teamLookup = {},
+    data = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
 
 (function(){
 
-    var results;
-
-    // read is still using this
-    // Jasmine tests        
-
-    results = {
-      'El Entag Fc': "El Entag El Harby",      
-      'Arsenal FC': "Arsenal",
-      'Chel': "Chelsea"
-    };
+    var read = function(){        
+        return data;        
+    }
 
     teamLookup.setTeam = function(teamAlias, teamName) {
-
-        results[teamAlias] = teamName;             
-        
-        fs.writeFile('data.js', data, function(err){
-            if (err) {
-                return console.log(err)
-            } else {
-                return 'Successfull added ' + teamName;
-            }
-        });              
+        var dataUpdate;
+        data[teamAlias] = teamName;
+        dataUpdate = JSON.stringify(data);
+        fs.writeFileSync('data.json', dataUpdate, 'utf-8');
         return 'Successfull added ' + teamName;
     };
 
-    teamLookup.findTeam = function(teamAlias) {    
-        fs.readFile('data.js', 'utf-8', function read(err, data){
-            if (err) {
-                return console.log(err)
-            } else {
-                console.log(data);
-                // return true;
-            }
-        })  
-        // return true  
-        return results[teamAlias] || 'Cant find am ' + teamAlias;        
+    teamLookup.findTeam = function(teamAlias) {            
+        return data[teamAlias] || 'Cant find am ' + teamAlias;        
     };
-
+    
     teamLookup.all = function() {        
-        return results;        
+        return read();    
     };
 
 }());
 
-console.log(teamLookup.findTeam('Chel'));
-
+console.log(teamLookup.all());
+console.log(teamLookup.findTeam('West Ham United'));
+console.log(teamLookup.setTeam('A', 'Bc'));
