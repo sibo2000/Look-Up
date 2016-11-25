@@ -1,0 +1,19 @@
+{
+  "name": "look_up_dictionary",
+  "version": "1.0.0",
+  "description": "A module that allows you to store alias:name values.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sibo2000/Look-Up.git"
+  },
+  "author": "Simon Bowler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sibo2000/Look-Up/issues"
+  },
+  "homepage": "https://github.com/sibo2000/Look-Up#readme"
+}
