@@ -13,3 +13,20 @@ You will then need to create your dictionary file, this will hold all your alias
 In you project folder in the root directory (where your app.js file lives) run
 
 `touch look_up_dictionary.json`
+
+## Usage  
+
+Require the module in the usual Node way.
+
+`var lookup = require('look_up_dictionary');`
+
+You can then add entries to the dictionary like this.
+
+`lookup.set('Liverpool football club','Liverpool)`
+
+You can query the dictionary
+
+`lookup.find('Liverpool football club')`
+
+Which will return 'Liverpool'
+
