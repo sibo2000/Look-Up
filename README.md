@@ -20,13 +20,13 @@ Require the module in the usual Node way.
 
 `var lookup = require('look_up_dictionary');`
 
-You can then add entries to the dictionary like this.
+You can then add entries to the dictionary.
 
 `lookup.set('Liverpool football club','Liverpool)`
 
-You can query the dictionary
+You can query the dictionary.
 
 `lookup.find('Liverpool football club')`
 
-Which will return 'Liverpool'
+Which will return the string 'Liverpool'.
 
