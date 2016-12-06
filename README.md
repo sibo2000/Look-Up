@@ -1,6 +1,6 @@
 # Look-Up
 
-[![npm](https://img.shields.io/npm/v/look_up_dictionary.svg)]()
+[![npm](https://img.shields.io/npm/v/look_up_dictionary.svg)](https://www.npmjs.com/package/look_up_dictionary)
 [![npm](https://img.shields.io/apm/l/vim-mode.svg)]()
 
 A Node.js module that allows you to store alias:name values.
